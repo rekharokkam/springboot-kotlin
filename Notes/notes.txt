@@ -1,0 +1,19 @@
+in kotlin, lambdas are always inside {}, irrespective if it is a single line or multi-line
+Ex - .forEach {}, forEach is a function that takes lambda as the parameter, you can leave out the () for the fn.
+You can use a single line or a multi-line lambda
+for (i in 0 until 10)
+lower bound included, 0 included, upperbound not included, 10 not included
+for (i in 0 .. 10)
+both lower bound, 0 and upperbound 10 are included.
+
+
+runApplication<SpringbootKotlinApplication>(*args)
+*args - represents varags in kotlin
+
+extension function in kotlin - added at compile time to an existing class
+
+Springboot uses JUnit 5 under the hood for testing
+
+adding a val or a var to the constructor parameter makes it class attribute. If val / var is left out on the contructor parameter then its treated as a constructor parameter.
+
+class stopped at 123.06
