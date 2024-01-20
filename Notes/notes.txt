@@ -16,4 +16,36 @@ Springboot uses JUnit 5 under the hood for testing
 
 adding a val or a var to the constructor parameter makes it class attribute. If val / var is left out on the contructor parameter then its treated as a constructor parameter.
 
-class stopped at 123.06
+Elvis operator  :?
+--------------
+if left side of the elvis operator is null then execute it, if not then execute the right side of it
+
+Reified
+-------
+in Java generics types are erased at compile time, unless you explicitly specify the className, compiler cannot figure out the type
+Ex - <T> T = TestRestTemplate.getForObject (String url, Class<T> responseType, Object... urlVariables)
+If Class<T> is not specified with the name of the class, generics erases that information and response body cannot be automatically converted into the data class.
+
+in kotlin reified type is used. reified means preserve the type information during the compilation process
+
+TestRestTemplate is a client to the RestfulWebservice
+
+Because we use back tack `` in test names it allows to use special characters - '' and "" inside test names
+
+import org.springframework.boot.test.web.client.getForEntity
+import org.springframework.boot.test.web.client.getForObject
+Reason for importing these methods is because we are using Kotlin classes and not java methods
+    val entity = template.getForEntity<Greeting>("/rest")
+    val greeting = template.getForObject<Greeting>("/rest?name=Dolly")
+
+Java way of using the same
+    val greeting = template.getForObject("/rest?name=Dolly", Greeting::class.java)
+These functions - getForObject and  getForEntity are created as extension functions in kotlin, so we should import them.
+
+Advantage of using getForEntity over getForObject - getForEntity returns a wrapper and we can check for Headers.
+
+when u run ./gradlew test OR ./gradlew build
+test index.html is available in build/reports/tests/test/index.html
+
+
+class stopped at 179 mins

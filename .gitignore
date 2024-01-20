@@ -1,7 +1,10 @@
 .DS_Store
-build/
-.gradle/
+.idea/
+build/**
+build
+.gradle/**
 bin/
+.gradle
 # Compiled class file
 *.class
 

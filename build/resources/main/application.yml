@@ -1,5 +1,0 @@
-server:
-  port: 9008
-  servlet:
-    context-path: /springboot-kotlin
-
