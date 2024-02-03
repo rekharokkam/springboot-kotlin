@@ -47,5 +47,38 @@ Advantage of using getForEntity over getForObject - getForEntity returns a wrapp
 when u run ./gradlew test OR ./gradlew build
 test index.html is available in build/reports/tests/test/index.html
 
+You can also call functions inside the print or someother function
+fun getName (): String? = null
 
-class stopped at 179 mins
+fun main() {
+    println("hey ${getName()}! How are u today?")
+}
+
+Companion Object is a Singleton inside the class, creating an alternative to static methods and variables. Only one companion class allowed inside a class.
+Refer to some good examples in kotlin-learning project
+
+Adding any function inside its own file with the same name, can be accessed by just calling the method name -
+    myPrintln.kt, and how it is accessed inside the SpringbootKotlinApplication.kt
+
+const in a companion Object is similar to Blank final in Java, Blank final in Java will be initialized inside the constructor
+const means it is known at compile time
+
+final keyword is also available in kotlin
+
+in kotlin == means calling the equals method on Any object
+
+test reports in a intellij project can be found under - build/reports/tests/test/index.html
+
+You can't auto wire into a bean that is not Spring managed Bean
+@SpringBootTest makes a class a Spring Managed Bean
+
+you should import the extension functions
+
+exclamation mark for a library name coming from java does not tell Kotlin whether it is nullable or not
+file:File!
+
+ktor allows you to build a server - https://ktor.io/
+micronaut is a good framework for building microservices
+
+
+class stopped at 232.00 mins

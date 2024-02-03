@@ -6,7 +6,7 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 import kotlin.random.nextLong
 
-suspend fun main() = coroutineScope{
+suspend fun main1() = coroutineScope{
     for (i in 0 until 10) {
         launch {
 //            delay(1000L - (i * 10))
