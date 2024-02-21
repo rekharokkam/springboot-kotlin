@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 
 @SpringBootTest (webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class HelloRestControllerTests (@Autowired val template: TestRestTemplate) {
+internal class HelloRestControllerTestRestTemplateTest (@Autowired val template: TestRestTemplate) {
 
     @Test
     fun `greet without name must return 'Hello World!'` () {

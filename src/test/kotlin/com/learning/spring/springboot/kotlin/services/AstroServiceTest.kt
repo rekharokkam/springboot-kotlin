@@ -1,6 +1,6 @@
 package com.learning.spring.springboot.kotlin.services
 
-import com.learning.spring.springboot.kotlin.livelesson.json.AstroResponse
+import com.learning.spring.springboot.kotlin.livelesson.model.AstroResponse
 import com.learning.spring.springboot.kotlin.livelesson.services.AstroService
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

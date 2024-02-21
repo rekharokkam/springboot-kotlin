@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class HelloRestController {
-
     @GetMapping (value = ["/rest"])
-    fun greet (@RequestParam (required = false, defaultValue = "World") name: String): Greeting =
-        Greeting("Hello $name!")
+    fun greet (@RequestParam (required = false, defaultValue = "World") name: String): Greeting {
+        println ("Inside the greet method of the controller")
+        return Greeting("Hello $name!")
+    }
 }
 
 data class Greeting (val message: String)
