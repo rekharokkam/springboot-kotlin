@@ -6,7 +6,6 @@ lower bound included, 0 included, upperbound not included, 10 not included
 for (i in 0 .. 10)
 both lower bound, 0 and upperbound 10 are included.
 
-
 runApplication<SpringbootKotlinApplication>(*args)
 *args - represents varags in kotlin
 
@@ -71,6 +70,7 @@ test reports in a intellij project can be found under - build/reports/tests/test
 
 You can't auto wire into a bean that is not Spring managed Bean
 @SpringBootTest makes a class a Spring Managed Bean
+@SpringBootTest, means we are doing a true integration test, SpringBoot will deploy the application to a server on a random port
 
 you should import the extension functions
 
@@ -80,5 +80,8 @@ file:File!
 ktor allows you to build a server - https://ktor.io/
 micronaut is a good framework for building microservices
 
+plugin.spring :: spring plugin in the build.gradle open Spring annotated classes for extension - @Component, @Service, @Transactional, etc.
+Enables proxy classes to be generated
+Also plugin.jpa :: Generates no-argument constructor for @Entity classes
 
-class stopped at 232.00 mins
+co-routines provides the ability to write asynchronous code in a way that looks like synchronous code
