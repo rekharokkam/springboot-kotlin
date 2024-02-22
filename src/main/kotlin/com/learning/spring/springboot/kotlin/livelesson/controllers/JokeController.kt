@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
-
 @RestController
 class JokeController (@Autowired val jokeService: JokeService) {
 
     @GetMapping ("/joke", produces = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseStatus(HttpStatus.OK)
     fun getJoke  (
-        @RequestParam (required = false, defaultValue = "fashion") category: String) : Joke {
-            return jokeService.getJoke(category)
-    }
+        @RequestParam (required = false, defaultValue = "fashion") category: String) : Joke =
+            jokeService.getJoke(category)
 }
+

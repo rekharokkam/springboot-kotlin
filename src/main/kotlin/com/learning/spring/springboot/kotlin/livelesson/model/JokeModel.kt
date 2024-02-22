@@ -1,17 +1,7 @@
 package com.learning.spring.springboot.kotlin.livelesson.model
 
-data class Joke (val categories: Array<String>, val createdAt: String, val iconUrl: String,
-                 val jokeId: String, val updatedAt: String, val url: String, val value: String) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+import java.util.Date
 
-        other as Joke
+data class Joke (val categories: List<String>?, val created_at: String?, val icon_url: String?,
+                 val id: String?, val updated_at: String?, val url: String?, val value: String?)
 
-        return categories.contentEquals(other.categories)
-    }
-
-    override fun hashCode(): Int {
-        return categories.contentHashCode()
-    }
-}
