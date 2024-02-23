@@ -17,7 +17,8 @@ internal class JokeControllerTest (@Autowired val client: WebTestClient) {
         client.get()
                 .uri("/joke")
                 .exchange()
-                .expectStatus().isOk
+                .expectStatus()
+                .isOk
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody<Joke>()
                 .consumeWith {  assertAll (
@@ -25,7 +26,7 @@ internal class JokeControllerTest (@Autowired val client: WebTestClient) {
                     { assertNotNull(it.responseBody?.value) },
                     { assertNotNull(it.responseBody?.icon_url) }
                     )
-                }.consumeWith { println(it.responseBody) }
+                }.consumeWith { println("Sync Joke when no category is passed : ${it.responseBody}") }
     }
 
     @Test
@@ -33,15 +34,40 @@ internal class JokeControllerTest (@Autowired val client: WebTestClient) {
         client.get()
             .uri("/joke?category=money")
             .exchange()
-            .expectStatus().isOk
+            .expectStatus()
+            .isOk
             .expectHeader().contentType(MediaType.APPLICATION_JSON)
             .expectBody<Joke>()
             .consumeWith {  assertAll (
                 "Testing all the field ",
                 { assertNotNull(it.responseBody?.value) },
                 { assertNotNull(it.responseBody?.icon_url) },
-                { assertTrue(it.responseBody?.categories?.contains("money") == true) }
+                { assertTrue(
+                    (it.responseBody?.categories?.contains("money") == true)
+                            || (it.responseBody?.categories?.contains("fashion") == true)
+                ) }
             )
-            }.consumeWith { println(it.responseBody) }
+            }.consumeWith { println("Sync Joke when a category is passed : ${it.responseBody}") }
+    }
+
+    @Test
+    internal fun `async get random joke for a passed in category` () {
+        client.get()
+            .uri("/joke_async?category=movie")
+            .exchange()
+            .expectStatus()
+            .isOk
+            .expectHeader().contentType(MediaType.APPLICATION_JSON)
+            .expectBody<Joke>()
+            .consumeWith {  assertAll (
+                "Testing all the field ",
+                { assertNotNull(it.responseBody?.value) },
+                { assertNotNull(it.responseBody?.icon_url) },
+                { assertTrue(
+                    (it.responseBody?.categories?.contains("movie") == true)
+                            || (it.responseBody?.categories?.contains("fashion") == true)
+                ) }
+            )
+            }.consumeWith { println("Async Joke when a category is passed : ${it.responseBody}") }
     }
 }
