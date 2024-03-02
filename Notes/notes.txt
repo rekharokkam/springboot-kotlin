@@ -87,3 +87,8 @@ Also plugin.jpa :: Generates no-argument constructor for @Entity classes
 co-routines provides the ability to write asynchronous code in a way that looks like synchronous code
 Kotlin can suspend the thread, save the state, go do something else come back and resume where it left off
 withContext(Dispatchers.IO) { :: means don't use the thread request is attached to but use a different thread
+
+JPA do not play well with immutable Objects - val
+Rather than data classes use regular classes
+JPA expects things to be modifiable.
+Recommendation is to put the null variables at the end
